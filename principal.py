@@ -10,3 +10,7 @@ for i in range (0, 15):
     senha += secrets.choice(caracteres)
 
 print(f"Sua senha gerada aleatoriamente é: {senha}")
+
+# Email descartável
+
+email = "Exemplo123@gmail.com"
