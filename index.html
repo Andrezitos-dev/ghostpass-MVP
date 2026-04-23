@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Passaporte Fantasma</title>
+    <style>/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0f172a; /* azul escuro */
+    color: #e2e8f0;
+    width: 300px;
+    padding: 15px;
+}
+
+/* CONTAINER */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* TÍTULO */
+.title {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: #f8fafc;
+}
+
+/* CARD */
+.card {
+    background: #1e293b;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* INPUTS / TEXT */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.value {
+    background: #0f172a;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    word-break: break-all;
+}
+
+/* BOTÕES */
+.button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* botão principal */
+.button-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.button-primary:hover {
+    background: #2563eb;
+}
+
+/* botão secundário */
+.button-secondary {
+    background: #334155;
+    color: #e2e8f0;
+}
+
+.button-secondary:hover {
+    background: #475569;
+}
+
+/* GRID DE BOTÕES */
+.button-group {
+    display: flex;
+    gap: 8px;
+}
+
+/* INBOX */
+.inbox {
+    max-height: 120px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ITEM DE EMAIL */
+.email-item {
+    background: #0f172a;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.email-subject {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.email-content {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* SCROLLBONITO */
+.inbox::-webkit-scrollbar {
+    width: 6px;
+}
+
+.inbox::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+/* HOVER SUAVE */
+.card:hover {
+    transform: translateY(-2px);
+    transition: 0.2s;
+}
+
+    </style>
+</head>
+<body>
+      <div class="container">
+
+        <div class="title">Passaporte Fantasma</div>
+
+        <div class="card">
+            <div class="field">
+                <div class="label">Email</div>
+                <div class="value">abc123@ghostpass.com</div>
+            </div>
+
+            <div class="field">
+                <div class="label">Senha</div>
+                <div class="value">XyZ@1234</div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="button button-primary">Gerar</button>
+            <button class="button button-secondary">Preencher</button>
+        </div>
+
+        <div class="card">
+            <div class="label">Inbox</div>
+
+            <div class="inbox">
+                <div class="email-item">
+                    <div class="email-subject">Confirmação</div>
+                    <div class="email-content">Seu código é 1234</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
