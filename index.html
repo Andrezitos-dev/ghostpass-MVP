@@ -146,22 +146,22 @@ body {
 <body>
       <div class="container">
 
-        <div class="title">Passaporte Fantasma</div>
+        <div class="title">GHOSTPASS</div>
 
         <div class="card">
             <div class="field">
                 <div class="label">Email</div>
-                <div class="value">abc123@ghostpass.com</div>
+                <div class="value" id="email"> --- </div>
             </div>
 
             <div class="field">
                 <div class="label">Senha</div>
-                <div class="value">XyZ@1234</div>
+                <div class="value" id="senha"> --- </div>
             </div>
         </div>
 
         <div class="button-group">
-            <button class="button button-primary">Gerar</button>
+            <button id="gerar" class="button button-primary">Gerar</button>
             <button class="button button-secondary">Preencher</button>
         </div>
 
@@ -177,5 +177,32 @@ body {
         </div>
 
     </div>
+   <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const botao = document.getElementById("gerar");
+
+    botao.addEventListener("click", async () => {
+        console.log("clicou");
+
+        try {
+            const response = await fetch("http://127.0.0.1:5000/api/identidade");
+
+            console.log("resposta:", response);
+
+            const data = await response.json();
+
+            console.log("dados:", data);
+
+            document.getElementById("email").textContent = data.email;
+            document.getElementById("senha").textContent = data.senha;
+
+        } catch (error) {
+            console.error("Erro:", error);
+        }
+    });
+
+});
+</script>
 </body>
 </html>
