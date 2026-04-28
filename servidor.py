@@ -65,14 +65,3 @@ def receber():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-# Teste de Função 
-print(f"Gerar email: {gerar_email()}")
-print(f"Gerar senha: {gerar_senha(16)}")
-email = criar_email()
-print(f"Ver a caixa de entrada: {ver_inbox(email)}")
-receber_email(email, "Teste", "Este é um email de teste.")
-print(f"Ver a caixa de entrada após receber um email: {ver_inbox(email)}")
-
-
-
