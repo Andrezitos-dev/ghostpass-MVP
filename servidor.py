@@ -1,16 +1,42 @@
 # Secção de Funções 
 
+import random 
 import secrets
 import string 
+import math
 
 inbox = {} # dicionário para armazenar as caixas de entrada dos emails
 
-def gerar_senha(tamanho):
-    carcteres = string.ascii_letters + string.digits + string.punctuation
-    senha = ""
-    for i in range(tamanho):
-        senha += secrets.choice(carcteres)
-    return senha
+def gerar_senha(tamanho=16):
+
+    # Definir os caracteres
+    letras = string.ascii_letters
+    numeros = string.digits
+    simbolos = "!#@$%&*?"
+
+    # Definir quantidades
+    qtd_letras = math.ceil(tamanho * 0.5)
+    qtd_numeros = math.ceil(tamanho * 0.25)
+    qtd_simbolos = tamanho - qtd_letras - qtd_numeros
+
+    senha = []
+
+    # Adicionar letras
+    for _ in range(qtd_letras):
+        senha.append(secrets.choice(letras))
+
+    # Adicionar números
+    for _ in range(qtd_numeros):
+        senha.append(secrets.choice(numeros))
+
+    # Adicionar simbolos
+    for _ in range(qtd_simbolos):
+        senha.append(secrets.choice(simbolos))
+
+    # Embaralhar 
+    random.shuffle(senha)
+
+    return "".join(senha)
 
 def gerar_email():
     caracteres = string.ascii_letters + string.digits
