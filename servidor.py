@@ -38,15 +38,17 @@ def gerar_senha(tamanho=16):
 
     return "".join(senha)
 
-def gerar_email():
-    caracteres = string.ascii_letters + string.digits
-    nome = ""
-    for i in range(10):
-        nome += secrets.choice(caracteres)
-    return nome + "@ghostpass.com"
+def gerar_nome_email():
+    palavras_1 = ["Galáxia", "Universo", "Estrela", "Planeta", "Asteroide", "Cometa", "Supernova", "Nebulosa", "Órbita","Espaço","Cosmos", "Dimensão", "Multiverso", "Nave", "Foguete", "Cruzeiro", "Cargueiro", "Sonda","Satélite", "Estação","Base", "Colônia", "Império", "República", "Federação", "Aliança", "Rebelião","Ciborgue", "Androide", "Robô","Inteligência", "Holograma", "Matriz", "Rede", "Sistema", "Servidor", "Código", "Algoritmo", "Vírus", "Programa","Chip", "Processador", "Circuito", "Bateria", "Reator", "Plasma", "Laser", "Fóton", "Íon", "Quantum","Átomo", "Molécula", "Genoma", "Clone", "Mutante", "Alienígena", "Extraterrestre", "Invasor", "Espécie", "Raça","Portal", "Fenda", "Anomalia", "Paradoxo", "Cronos", "Tempo", "Futuro", "Hiperespaço", "Dobra", "Velocidade","Gravidade", "Antimatéria", "Energia", "Escudo", "Campo", "Força", "Armadura", "Exotraje", "Mecha", "Drone","Hoverboard", "Speeder", "Blaster", "Canhão", "Torpedo", "Míssil", "Ogiva", "Bomba", "Detonador", "Radar","Scanner", "Sensor", "Transmissor", "Comunicador", "Frequência", "Sinal", "Rádio", "Ótica", "Lente", "Visor","Tela", "Painel", "Console", "Computador", "Máquina", "Engenho", "Aparelho", "Dispositivo", "Gadget", "Módulo","Cápsula", "Incubadora", "Câmara", "Cilindro", "Tubo", "Laboratório", "Pesquisa", "Ciência","Experimento", "Descoberta","Invenção", "Tecnologia", "Ciberespaço", "Sinergia", "Vácuo"]
+    palavras_2 = ["Épico", "Mágico", "Místico", "Feérico", "Sombrio", "Amaldiçoado", "Abençoado", "Sagrado", "Profano", "Diabólico","Divino", "Celestial", "Infernal", "Heróico", "Lendário", "Mítico", "Ancestral", "Antigo", "Esquecido", "Perdido","Oculto", "Secreto", "Misterioso", "Enigmático", "Arcano", "Esotérico", "Alquímico", "Encantado","Enfeitiçado", "Assombrado","Macabro", "Gótico", "Real", "Nobre", "Plebeu", "Feudal", "Imperial", "Soberano", "Majestoso", "Imponente","Grandioso", "Rústico", "Bárbaro", "Selvagem", "Primitivo", "Tribal", "Pagão", "Herege", "Ortodoxo", "Zeloso","Devoto", "Piedoso", "Cruel", "Sanguinário", "Impiedoso", "Tirânico", "Justo", "Valente", "Corajoso", "Destemido","Honrado", "Leal", "Traiçoeiro", "Desleal", "Falso", "Enganoso", "Ilusório", "Fantástico", "Quimérico","Dracônico","Élfico", "Anão", "Órquico", "Goblinoide", "Titânico", "Colossal", "Gigante", "Minúsculo", "Etéreo", "Espectral","Fantasmagórico", "Espiritual", "Elemental", "Flamejante", "Gélido", "Congelado", "Rochoso", "Terroso","Ventoso", "Tempestuoso","Abissal", "Profundo", "Subterrâneo", "Cavernoso", "Montanhoso", "Florestal", "Silvestre", "Luminoso", "Brilhante", "Ofuscante","Tenebroso", "Escuro", "Noturno", "Crepuscular", "Diurno", "Dourado", "Prateado", "Férreo", "Acobreado", "Enferrujado","Polido", "Afiado", "Cego", "Quebrado", "Forjado", "Temperado", "Rúnico", "Protetor", "Defensivo", "Ofensivo","Destrutivo", "Restaurador", "Curativo", "Venenoso", "Letal"]
+
+    nome = secrets.choice(palavras_1) + secrets.choice(palavras_2)
+    numero = secrets.randbelow(999)
+
+    return f"{nome}.{numero}" + "@ghostpass.com"
 
 def criar_email():
-    email = gerar_email()
+    email = gerar_nome_email()
     inbox[email] = [] # cria uma caixa de entrada vazia
     return email
 
