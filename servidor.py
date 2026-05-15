@@ -76,6 +76,10 @@ def identidade():
         "senha": nova_senha
     })
 
+@app.route("/api/inbox/<email>", methods=["GET"])
+def inbox_view(email):
+    return jsonify(ver_inbox(email))
+
 #🔹criar email 
 @app.route("/api/email/", methods=["GET"] )
 def email():
