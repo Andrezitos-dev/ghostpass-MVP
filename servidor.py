@@ -60,14 +60,18 @@ def receber_email(email, assunto, conteudo):
         inbox[email].append({"assunto": assunto, "conteudo": conteudo})
 
 # Secção do API
+# Secção da API
+
 from flask import Flask, jsonify, request
-from flask_cors import CORS 
+from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
+# GERAR IDENTIDADE
 @app.route("/api/identidade", methods=["GET"])
 def identidade():
+
     novo_email = criar_email()
     nova_senha = gerar_senha(16)
 
@@ -76,24 +80,41 @@ def identidade():
         "senha": nova_senha
     })
 
+
+# VER INBOX
 @app.route("/api/inbox/<email>", methods=["GET"])
 def inbox_view(email):
+
     return jsonify(ver_inbox(email))
 
-#🔹criar email 
-@app.route("/api/email/", methods=["GET"] )
-def email():
-    novo_email = criar_email()
-    return jsonify({"email": novo_email})
 
-#🔹 ver inbox 
-@app.route("/api/inbox/<email>", methods=["GET"])
+# RECEBER EMAIL
+@app.route("/api/receber", methods=["POST"])
 def receber():
+
     data = request.json
-    receber_email(data["email"],
-                  data["assunto"],
-                  data["conteudo"])
-    return jsonify({"msg": "Email recebido"})
+
+    receber_email(
+        data["email"],
+        data["assunto"],
+        data["conteudo"]
+    )
+
+    return jsonify({
+        "msg": "Email recebido"
+    })
+
+
+# GERAR EMAIL
+@app.route("/api/email", methods=["GET"])
+def email():
+
+    novo_email = criar_email()
+
+    return jsonify({
+        "email": novo_email
+    })
+
 
 if __name__ == "__main__":
     app.run(debug=True)
